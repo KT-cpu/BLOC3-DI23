@@ -7,8 +7,6 @@
         require_once '../back/CRUD/pre_match.php';
         require_once '../back/CRUD/pre_match_team_lineup_versus.php';
 
-        echo "You are a coach.";
-
         if (isset($_SESSION['message'])) {
             // addslashes() allows to escape special characters
             $message = addslashes($_SESSION['message']);
@@ -22,10 +20,7 @@
         $coachName = ucwords(getCoachNameByClubId($clubId));
 
         $nextMatchs = getAllPreMatchsOfClubWithStadiumName($clubId);
-        /*
-        echo "<pre>";
-        var_dump($nextMatch);
-        */
+
     } else {
         header('Location: ./home.php');
         exit();
@@ -33,7 +28,7 @@
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

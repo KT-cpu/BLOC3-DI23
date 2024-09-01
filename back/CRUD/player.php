@@ -23,6 +23,9 @@ function getAllPlayers() {
 //echo "<pre>";
 //var_dump(getAllPlayers());
 
+
+
+
 function getPlayerById($playerId) {
     $db = connexionDB();
     try {
@@ -130,3 +133,97 @@ function setPlayerClub($player_id, $new_club_id) {
     }
 }
 //setPlayerClub(1, 2);$$
+
+
+//Stats du Joueur
+
+function getMatchsJoues($player_id) {
+    $db = connexionDB();
+    try {
+        $sql = "SELECT COUNT(*) as match_count FROM player_selected WHERE player_id = :player_id";
+        $req = $db->prepare($sql);
+        $req->bindParam(':player_id', $player_id, PDO::PARAM_INT);
+        $req->execute();
+        $result = $req->fetch(PDO::FETCH_ASSOC);
+        return $result ? $result['match_count'] : 0;
+    } catch (Exception $e) {
+        echo 'Erreur : ' . $e->getMessage();
+        return 0;
+    }
+}
+
+function getButsMarques($player_id) {
+    $db = connexionDB();
+    try {
+        // Requête mise à jour pour récupérer les buts marqués par un joueur
+        $sql = "
+            SELECT COUNT(*) as but_count 
+            FROM goal 
+            INNER JOIN team_lineup_player_selected 
+            ON goal.team_lineup_player_selected_id = team_lineup_player_selected.id
+            INNER JOIN player_selected 
+            ON team_lineup_player_selected.player_selected_id = player_selected.id
+            WHERE player_selected.player_id = :player_id";
+        
+        $req = $db->prepare($sql);
+        $req->bindParam(':player_id', $player_id, PDO::PARAM_INT);
+        $req->execute();
+        $result = $req->fetch(PDO::FETCH_ASSOC);
+        return $result ? $result['but_count'] : 0;
+    } catch (Exception $e) {
+        echo 'Erreur : ' . $e->getMessage();
+        return 0;
+    }
+}
+
+function getButsParType($player_id, $goal_type_id) {
+    $db = connexionDB();
+    try {
+        $sql = "
+            SELECT COUNT(*) as but_count 
+            FROM goal 
+            INNER JOIN team_lineup_player_selected 
+            ON goal.team_lineup_player_selected_id = team_lineup_player_selected.id
+            INNER JOIN player_selected 
+            ON team_lineup_player_selected.player_selected_id = player_selected.id
+            WHERE player_selected.player_id = :player_id
+            AND goal.goal_type_id = :goal_type_id";
+        
+        $req = $db->prepare($sql);
+        $req->bindParam(':player_id', $player_id, PDO::PARAM_INT);
+        $req->bindParam(':goal_type_id', $goal_type_id, PDO::PARAM_INT);
+        $req->execute();
+        $result = $req->fetch(PDO::FETCH_ASSOC);
+        return $result ? $result['but_count'] : 0;
+    } catch (Exception $e) {
+        echo 'Erreur : ' . $e->getMessage();
+        return 0;
+    }
+}
+
+
+function getCartons($player_id, $card_type_id) {
+    $db = connexionDB();
+    try {
+        // Requête pour récupérer le nombre de cartons (jaunes ou rouges) reçus par un joueur
+        $sql = "
+            SELECT COUNT(*) as card_count 
+            FROM card 
+            INNER JOIN team_lineup_player_selected 
+            ON card.team_lineup_player_selected_id = team_lineup_player_selected.id
+            INNER JOIN player_selected 
+            ON team_lineup_player_selected.player_selected_id = player_selected.id
+            WHERE player_selected.player_id = :player_id
+            AND card.card_type_id = :card_type_id";
+        
+        $req = $db->prepare($sql);
+        $req->bindParam(':player_id', $player_id, PDO::PARAM_INT);
+        $req->bindParam(':card_type_id', $card_type_id, PDO::PARAM_INT);
+        $req->execute();
+        $result = $req->fetch(PDO::FETCH_ASSOC);
+        return $result ? $result['card_count'] : 0;
+    } catch (Exception $e) {
+        echo 'Erreur : ' . $e->getMessage();
+        return 0;
+    }
+}

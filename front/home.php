@@ -19,7 +19,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,6 +31,13 @@
             <a href="./create_match.php">Créer un match</a>
         </div>
     <?php } ?>
+
+    <?php if ($user_role === 'admin') { ?>
+        <div>
+            <a href="./result_match_management.php">Saisir les résultats d'un match</a>
+        </div>
+    <?php } ?>
+
     <?php if ($user_role === null) { ?>
         <div>
             <a href="./login.php">Se connecter</a>
@@ -49,5 +56,8 @@
             <a href="./coach_management.php">Gérer mon équipe</a>
         </div>
     <?php } ?>
+    <div>
+        <a href="./clubs.php">Les équipes</a>
+    </div>
 </body>
 </html>

@@ -109,11 +109,11 @@ function addTable($db, $dbName) {
         )",
         "substitution" => "CREATE TABLE IF NOT EXISTS substitution (
             id INT AUTO_INCREMENT PRIMARY KEY,
-            out_team_lineup_player_selected_id INT NOT NULL,
-            in_team_lineup_player_selected_id INT NOT NULL,
+            go_out_team_lineup_player_selected_id INT NOT NULL,
+            go_in_team_lineup_player_selected_id INT NOT NULL,
             substitution_time INT NOT NULL,
-            FOREIGN KEY (out_team_lineup_player_selected_id) REFERENCES team_lineup_player_selected(id),
-            FOREIGN KEY (in_team_lineup_player_selected_id) REFERENCES team_lineup_player_selected(id)
+            FOREIGN KEY (go_out_team_lineup_player_selected_id) REFERENCES team_lineup_player_selected(id),
+            FOREIGN KEY (go_in_team_lineup_player_selected_id) REFERENCES team_lineup_player_selected(id)
         )",
         "match_result_substitution" => "CREATE TABLE IF NOT EXISTS match_result_substitution (
             id INT AUTO_INCREMENT PRIMARY KEY,

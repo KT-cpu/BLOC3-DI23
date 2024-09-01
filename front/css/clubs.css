@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-image: url(../assets/Ecran_Ligue_1.png);
+}
+
+/* #main_container {
+    background-image: url(../assets/Ecran_Ligue_1.png);
+} */
+
+h1 {
+    color: #FAFCFC;
+    font-weight: 700;
+    font-style: italic;
+    padding: 0 20px;
+    margin: 50px 0;
+    font-size: 60px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+#card_container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 45px;
+    width: 75%;
+    margin: auto;
+}
+
+.card {
+    background-color: #2a2a2a;
+    border-radius: 30px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 115px;
+}
+
+.card_img {
+    width: 100px;
+    height: 100px;
+}
+
+#card_1 {
+    background-color: #014273;
+}
+
+#card_2 {
+    background-color: #DC1232;
+}
+
+#card_3 {
+    background-color: #FBFBFC;
+}
+
+#card_4 {
+    background-color: #E52216;
+}
+
+#card_5 {
+    background-color: #D42527;
+}
+
+#card_6 {
+    background-color: #FBD035;
+}
+
+#card_7 {
+    background-color: #DB2C1D;
+}
+
+#card_8 {
+    background-color: #86B9D4;
+}
+
+#card_9 {
+    background-color: #152CA7;
+}
+
+#card_10 {
+    background-color: #FBFBFC;
+}
+
+#card_11 {
+    background-color: #7A638D;
+}
+
+#card_12 {
+    background-color: #0C205F;
+}
+
+#card_13 {
+    background-color: #18A0DE;
+}
+
+#card_14 {
+    background-color: #00A45E;
+}
+
+#card_15 {
+    background-color: #C62E29;
+}
+
+#card_16 {
+    background-color: #86B9D4;
+}
+
+#card_17 {
+    background-color: #FE4B0B;
+}
+
+#card_18 {
+    background-color: #112E63;
+}

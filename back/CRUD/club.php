@@ -36,6 +36,18 @@ function getAllClubsName() {
 //echo "<pre>";
 //var_dump(getAllClubs());
 
+function getAllClubSId() {
+    $db = connexionDB();
+    try {
+        $sql = "SELECT id FROM club ORDER BY club_name ASC";
+        $req = $db->prepare($sql);
+        $req->execute();
+        return $req->fetchAll(PDO::FETCH_ASSOC);
+    } catch (Exception $e) {
+        echo 'Erreur : ' . $e->getMessage();
+    }
+}
+
 function getClubNameById($clubId) {
     $db = connexionDB();
     try {
@@ -84,6 +96,23 @@ function getAllclubsWithStadium() {
         $req = $db->prepare($sql);
         $req->execute();
         return $req->fetchAll(PDO::FETCH_ASSOC);
+    } catch (Exception $e) {
+        echo 'Erreur : ' . $e->getMessage();
+    }
+}
+
+function getAllDataOfClubById($clubId) {
+    $db = connexionDB();
+    try {
+        $sql = "SELECT * FROM club 
+        INNER JOIN stadium ON club.stadium_id = stadium.id
+        INNER JOIN coach ON club.id = coach.club_id
+        INNER JOIN pre_match ON club.id = pre_match.home_team_id OR club.id = pre_match.visitor_team_id
+        WHERE club.id = :clubId ORDER BY pre_match.date ASC";
+        $req = $db->prepare($sql);
+        $req->bindValue(':clubId', $clubId, PDO::PARAM_INT);
+        $req->execute();
+        return $req->fetch(PDO::FETCH_ASSOC);
     } catch (Exception $e) {
         echo 'Erreur : ' . $e->getMessage();
     }

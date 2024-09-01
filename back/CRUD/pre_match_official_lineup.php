@@ -53,4 +53,23 @@ function getOfficialLineUp($referee_official_id, $linesmen_left_official_id, $li
     }
 }
 
+function getOfficialNameOfLineUpById($officialLineUpId) {
+    $db = connexionDB();
+    try {
+        $sql = "SELECT 
+                    official_referee.official_name AS referee_official_name, 
+                    official_left.official_name AS linesmen_left_official_name, official_right.official_name AS linesmen_right_official_name FROM pre_match_official_lineup 
+                INNER JOIN official AS official_referee ON pre_match_official_lineup.referee_official_id = official_referee.id 
+                INNER JOIN official AS official_left ON pre_match_official_lineup.linesmen_left_official_id = official_left.id 
+                INNER JOIN official AS official_right ON pre_match_official_lineup.linesmen_right_official_id = official_right.id 
+                WHERE pre_match_official_lineup.id = :officialLineUpId";
+        $req = $db->prepare($sql);
+        $req->bindParam(':officialLineUpId', $officialLineUpId);
+        $req->execute();
+        return $req->fetch(PDO::FETCH_ASSOC);
+    } catch (Exception $e) {
+        echo 'Erreur : ' . $e->getMessage();
+    }
+}
+
 ?>

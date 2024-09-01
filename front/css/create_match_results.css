@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    padding: 5px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+h3 {
+    font-size: 24px;
+    text-align: center;
+}
+
+h4 {
+    font-size: 20px;
+    text-align: center;
+}
+
+#home_goal_type_select_container,
+#substitution_player_select_home_club_container,
+#visitor_goal_type_select_container,
+#substitution_player_select_visitor_club_container {
+    display: none;
+}
+
+#global_inputs_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width: auto;
+}
+
+#clubs_container {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 0 20px 0;
+}
+
+#home_club_container,
+#visitor_club_container {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+#recap_clubs_container {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 0 20px 0;
+}
+
+#recap_home_club_container, #recap_visitor_club_container {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
