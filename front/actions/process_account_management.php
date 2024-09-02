@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    header('Location: ./login.php');
+    header('Location: ./login');
     exit();
 } else {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -43,7 +43,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                         session_destroy();
                         $_SESSION['loggedin'] = false;
                         $_SESSION['message'] = 'Compte supprimé avec succès.';
-                        header('Location: ../home.php');
+                        header('Location: ./home');
                         exit();
                     } else {
                         $_SESSION['message'] = 'Échec de la suppression du compte.';
@@ -54,19 +54,19 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                     $_SESSION['message'] = 'Formulaire non reconnu.';
                     break;
             } 
-            header('Location: ../account_management.php');
+            header('Location: ./account_management');
             exit();
         } else {
             // Requête invalide
             $_SESSION['message'] = 'Requête invalide.';
-            header('Location: ../account_management.php');
+            header('Location: ./account_management');
             exit();
         }
     } else {
         // Invalid request
         $_SESSION['message'] = 'Requête invalide.';
         echo $_SESSION['message'];
-        header('Location: ../account_management.php');
+        header('Location: ./account_management');
         exit();
     }
 }

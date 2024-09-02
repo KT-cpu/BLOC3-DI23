@@ -1,19 +1,27 @@
 <?php
 session_start();
 
+if (isset($_SESSION['message'])) {
+    // addslashes() allows to escape special characters
+    $message = addslashes($_SESSION['message']);
+    echo "<script>alert('$message');</script>";
+    // Unset the message after displaying it
+    unset($_SESSION['message']);
+}
+
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-    require_once '../back/CRUD/club.php';
-    require_once '../back/CRUD/official.php';
+    require_once dirname(__DIR__) . '/back/CRUD/club.php';
+    require_once dirname(__DIR__) . '/back/CRUD/official.php';
     
     $user_role = $_SESSION['user_role'];
     if ($user_role !== 'admin') {
         $_SESSION['message'] = "Vous n'êtes pas autorisé à accéder à cette page.";
-        header('Location: ./home.php');
+        header('Location: ./home');
         exit();
     }
 } else {
     $_SESSION['message'] = "Vous devez vous connecter pour accéder à cette page.";
-    header('Location: ./login.php');
+    header('Location: ./login');
     exit();
 }
 
@@ -37,11 +45,11 @@ $favoriteClubId = 1;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programmer un match</title>
-    <link rel="stylesheet" href="./css/create_match.css">
+    <link rel="stylesheet" href="/BLOC3-DI23/front/css/create_match.css">
 </head>
 <body>
     <section id="main_container">
-        <form id="match_form" action="./actions/process_create_match.php" method="POST">
+        <form id="match_form" action="./process_create_match" method="POST">
             <div id="left_container">
                 <div id="home_teamContainer" class="form_item">
                     <!-- Home team -->
@@ -148,5 +156,5 @@ $favoriteClubId = 1;
         // Définir la variable clubsWithStadium
         let clubsWithStadium = <?php echo json_encode($clubsWithStadium); ?>;
     </script>
-<script src="./js/create_match.js"></script>
+<script src="/BLOC3-DI23/front/js/create_match.js"></script>
 </html>

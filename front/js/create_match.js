@@ -1,7 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log(clubsWithStadium);
-    console.log(clubsWithStadium[0].club_name);
-
     const homeTeamSelect = document.getElementById("home_team");
     const visitorTeamSelect = document.getElementById("visitor_team");
     const matchDateInput = document.getElementById("match_date");

@@ -20,15 +20,15 @@
             $_SESSION['user_favorite_club_id'] = $user['user_favorite_club_id'];
             $_SESSION['user_role'] = $user['user_role'];
             $_SESSION['loggedin'] = true;
-            header('Location: ../home.php');
+            header('Location: ./home');
         } else {
             $_SESSION['message'] = "Échec de la création de l'utilisateur.";
-            header('Location: ../register.php');
+            header('Location: ./register');
         }
     } else {
         // Invalid request
         $_SESSION['message'] = 'Requête invalide.';
-        header('Location: ../register.php');
+        header('Location: ./register');
     }
     exit();
 ?>

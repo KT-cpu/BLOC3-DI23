@@ -13,9 +13,6 @@
 
     $clubId = $_GET['club_id'];
     $clubData = getAllDataOfClubById($clubId);
-
-    //echo "<pre>";
-    //var_dump($clubData);
 ?>
 
 <!DOCTYPE html>
@@ -24,12 +21,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Equipe</title>
-    <link rel="stylesheet" href="./css/club.css">
+    <link rel="stylesheet" href="/BLOC3-DI23/front/css/club.css">
 </head>
 <body>
     <section>
         <div id="banner_container">
-            <img src="./assets/club_logo/<?php echo $clubId; ?>.png" alt="logo" id="club_logo">
+            <img src="/BLOC3-DI23/front/assets/club_logo/<?php echo $clubId; ?>.png" alt="logo" id="club_logo">
             <p id="stadium_name"><?php echo "Stade : " . ucwords($clubData['stadium_name']); ?></p>
         </div>
     </section>

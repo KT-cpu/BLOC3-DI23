@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Empêcher l'indexation des répertoires
+Options -Indexes
+
+# Rediriger toutes les requêtes vers index.php, sauf pour les fichiers ou dossiers existants
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+
+# Rediriger vers une page d'erreur personnalisée ou la page d'accueil en cas d'accès interdit
+ErrorDocument 403 /BLOC3-DI23/front/404.php

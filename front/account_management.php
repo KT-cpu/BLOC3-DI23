@@ -1,5 +1,5 @@
 <?php
-    require_once '../back/CRUD/club.php';
+    require_once dirname(__DIR__) . '/back/CRUD/club.php';
     $clubs = getAllClubsName();
 
     session_start();
@@ -22,17 +22,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion du compte</title>
-    <link rel="stylesheet" href="./css/account_management.css">
+    <link rel="stylesheet" href="/BLOC3-DI23/front/css/account_management.css">
 </head>
 <body>
     <section id="main_container">
         <!-- pseudo form -->
         <div  class="form_container">
-            <form  action="./actions/process_account_management.php" method="POST">
+            <form  action="./process_account_management" method="POST">
                 <input type="hidden" name="form_type" value="pseudo_form">
                 <div class="form_item">
                     <label for="pseudo" class="pointer" >Modifier nom d'utilisateur</label>
-                    <input type="text" name="pseudo" id="pseudo" placeholder="Entrez votre nom d'utilisateur" required value="admin">
+                    <input type="text" name="pseudo" id="pseudo" placeholder="Entrez votre nom d'utilisateur" required value="">
                 </div>
                 <div class="submit_container">
                     <button id="pseudo_submit" type="submit" class="submit">Valider nom d'utilisateur</button>
@@ -41,11 +41,11 @@
         </div>
         <!-- password form -->
         <div  class="form_container">
-            <form id="password_form" action="./actions/process_account_management.php" method="POST">
+            <form id="password_form" action="./process_account_management" method="POST">
                 <input type="hidden" name="form_type" value="password_form">
                 <div class="form_item">
                     <label for="password" class="pointer" >Modifier mot de passe</label>
-                    <input type="password" name="password" id="password" placeholder="Entrez votre mot de passe" required value="admin">
+                    <input type="password" name="password" id="password" placeholder="Entrez votre mot de passe" required value="">
                     <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirmer votre nouveau mot de passe">
                 </div>
                 <div class="submit_container">
@@ -58,7 +58,7 @@
         if ($_SESSION['user_role'] !== 'coach') {
             ?>
             <div  class="form_container">
-                <form  action="./actions/process_account_management.php" method="POST">
+                <form  action="./process_account_management" method="POST">
                     <input type="hidden" name="form_type" value="favorite_club_form">
                     <div class="form_item">
                         <label for="favorite_club" class="pointer" >Changer d'équipe favorite</label>
@@ -81,7 +81,7 @@
         ?>
         <!-- delete account form -->
         <div  class="form_container">
-            <form  action="./actions/process_account_management.php" method="POST">
+            <form  action="./process_account_management" method="POST">
                 <input type="hidden" name="form_type" value="delete_account_form">
                 <div class="form_item">
                     <label for="delete_account" class="pointer" >Supprimer mon compte</label>
@@ -93,5 +93,5 @@
             </form>
     </section>
 </body>
-<script src="./js/account_management.js"></script>
+<script src="/BLOC3-DI23/front/js/account_management.js"></script>
 </html>

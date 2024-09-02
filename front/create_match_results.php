@@ -2,13 +2,11 @@
     session_start();
 
     if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'admin'){
-        require_once '../back/CRUD/club.php';
-        require_once '../back/CRUD/coach.php';
-        require_once '../back/CRUD/pre_match.php';
-        require_once '../back/CRUD/pre_match_team_lineup_versus.php';
-        require_once '../back/CRUD/goal_type.php';
-
-        echo "You are a admin.";
+        require_once dirname(__DIR__) . '/back/CRUD/club.php';
+        require_once dirname(__DIR__) . '/back/CRUD/coach.php';
+        require_once dirname(__DIR__) . '/back/CRUD/pre_match.php';
+        require_once dirname(__DIR__) . '/back/CRUD/pre_match_team_lineup_versus.php';
+        require_once dirname(__DIR__) . '/back/CRUD/goal_type.php';
 
         if (isset($_SESSION['message'])) {
             // addslashes() allows to escape special characters
@@ -30,11 +28,11 @@
             
         } else {
             $_SESSION['message'] = "Invalide match id.";
-            header('Location: ./result_match_management.php');
+            header('Location: ./result_match_management');
             exit();
         }
     } else {
-        header('Location: ./home.php');
+        header('Location: ./home');
         exit();
     }
 
@@ -47,7 +45,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choisir un match</title>
-    <link rel="stylesheet" href="./css/create_match_results.css">
+    <link rel="stylesheet" href="/BLOC3-DI23/front/css/create_match_results.css">
 </head>
 <body>
     <section id="main_container">
@@ -71,14 +69,7 @@
         <div id="clubs_container">
             <div id="home_club_container">
                 <h4>Ajouter un évenement pour <?php echo  ucwords($clubs["home_club_name"]) ?></h4>
-                <!-- Inputs pour l'équipe home, ajout de but, carton et changement -->
-                <!-- <label for="club_select">Choisir une équipe</label>
-                <select name="club_select" id="club_select">
-                    <option value="" disabled selected>Choisir une équipe</option>
-                    <option value="<?php echo ucwords($clubs["home_club_id"])?>"><?php echo ucwords($clubs["home_club_name"])?></option>
-                    <option value="<?php echo ucwords($clubs["visitor_club_id"])?>"><?php echo ucwords($clubs["visitor_club_name"])?></option>
-                </select> -->
-
+                
                 <div id="event_time_home_club_container">
                     <label for="event_time_home_club">Choisir la minutes de l'eventement</label>
                     <input type="number" name="event_time_home_club" id="event_time_home_club" min="0">
@@ -138,13 +129,6 @@
             <!-- VISITOR -->
             <div id="visitor_club_container">
                 <h4>Ajouter un évenement pour <?php echo ucwords($clubs["visitor_club_name"]) ?></h4>
-                <!-- Inputs pour l'équipe home, ajout de but, carton et changement -->
-                <!-- <label for="club_select">Choisir une équipe</label>
-                <select name="club_select" id="club_select">
-                    <option value="" disabled selected>Choisir une équipe</option>
-                    <option value="<?php echo ucwords($clubs["home_club_id"])?>"><?php echo ucwords($clubs["home_club_name"])?></option>
-                    <option value="<?php echo ucwords($clubs["visitor_club_id"])?>"><?php echo ucwords($clubs["visitor_club_name"])?></option>
-                </select> -->
 
                 <div id="event_time_visitor_club_container">
                     <label for="event_time_visitor_club">Choisir la minutes de l'eventement</label>
@@ -251,7 +235,7 @@
         </div>
         <div>
             <!-- Formulaire d'envoi au back -->
-            <form action="./actions/process_create_match_results.php" method="POST">
+            <form action="./process_create_match_results" method="POST">
                 <input type="hidden" name="match_id" id="match_id" value="<?php  echo $matchId ?>">
                 <input type="hidden" name="winner_club" id="winner_club" required>
                 <input type="hidden" name="match_duration" id="match_duration" required>
@@ -262,5 +246,5 @@
         </div>
     </section>
 </body>
-<script src="./js/create_match_results.js"></script>
+<script src="/BLOC3-DI23/front/js/create_match_results.js"></script>
 </html>

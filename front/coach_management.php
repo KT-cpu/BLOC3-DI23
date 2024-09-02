@@ -2,10 +2,10 @@
     session_start();
 
     if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'coach') {
-        require_once '../back/CRUD/club.php';
-        require_once '../back/CRUD/coach.php';
-        require_once '../back/CRUD/pre_match.php';
-        require_once '../back/CRUD/pre_match_team_lineup_versus.php';
+        require_once dirname(__DIR__) . '/back/CRUD/club.php';
+        require_once dirname(__DIR__) . './back/CRUD/coach.php';
+        require_once dirname(__DIR__) . './back/CRUD/pre_match.php';
+        require_once dirname(__DIR__) . './back/CRUD/pre_match_team_lineup_versus.php';
 
         if (isset($_SESSION['message'])) {
             // addslashes() allows to escape special characters
@@ -22,7 +22,7 @@
         $nextMatchs = getAllPreMatchsOfClubWithStadiumName($clubId);
 
     } else {
-        header('Location: ./home.php');
+        header('Location: ./home');
         exit();
     }
 
@@ -33,13 +33,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gérer mon équipe</title>
-    <link rel="stylesheet" href="./css/coach_management.css">
+    <link rel="stylesheet" href="/BLOC3-DI23/front/css/coach_management.css">
 </head>
 <body>
     <!-- Banner -->
     <section id="banner">
         <div>
-            <img id="logo" src="./assets/club_logo/<?php echo htmlspecialchars($clubId); ?>.png" alt="">
+            <img id="logo" src="/BLOC3-DI23/front/assets/club_logo/<?php echo htmlspecialchars($clubId); ?>.png" alt="">
         </div>
         <div id="coach_name_container">
             <h2>
@@ -67,22 +67,16 @@
 
                         $url = "";
                         if ($preMatchTeamLineupVersus[$thisClubType] == null) {
-                            $url = "./coach_match_composition.php?match_id=" . $match['id'];
+                            $url = "./coach_match_composition?match_id=" . $match['id'];
                         } else {
-                            $url = "./match_sheet.php?match_id=" . $match['id'];
+                            $url = "./match_sheet?match_id=" . $match['id'];
                         }
-
-                        /*
-                        echo "<pre>";
-                        var_dump($match);
-                        */
                 ?>
-                    <!-- <a href="./coach_match_composition.php?match_id=<?php echo $match['id']; ?>" class="next_match_card"> -->
                     <a href="<?php echo $url; ?>" class="next_match_card">
                         <div class="logo_container">
-                            <img src="./assets/club_logo/<?php echo htmlspecialchars($homeClubId); ?>.png" alt="Logo domicile">
+                            <img src="/BLOC3-DI23/front/assets/club_logo/<?php echo htmlspecialchars($homeClubId); ?>.png" alt="Logo domicile">
                             <span>-</span>
-                            <img src="./assets/club_logo/<?php echo htmlspecialchars($visitorClubId); ?>.png" alt="Logo visiteur">
+                            <img src="/BLOC3-DI23/front/assets/club_logo/<?php echo htmlspecialchars($visitorClubId); ?>.png" alt="Logo visiteur">
                         </div>
                         <div class="info_container">
                             <div class="match_date">

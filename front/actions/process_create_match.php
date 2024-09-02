@@ -30,18 +30,17 @@
         $preMatchTeamLineupVersus = addPreMatchTeamLineupVersus();
 
         // Add pre-match
-    // Add pre-match
-        if (addPreMatch($home_team_id, $visitor_team_id, $preMatchTeamLineupVersus, $officialLineUp, $match_date)) {
+        $isAddPreMatch = addPreMatch($home_team_id, $visitor_team_id, $preMatchTeamLineupVersus, $officialLineUp, $match_date);
+        if ($isAddPreMatch) {
             $_SESSION['message'] = "Match created successfully.";
         } else {
             $_SESSION['message'] = "Match creation failed.";
         }
-        header('Location: ../create_match.php');
+        header('Location: ./create_match');
         exit();
     } else {
         // Invalid request
         $_SESSION['message'] = 'Requête invalide.';
-        echo $_SESSION['message'];
-        header('Location: ../create_match.php');
+        header('Location: ./create_match');
         exit();
     }

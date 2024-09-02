@@ -1,5 +1,5 @@
 <?php
-    require_once '../back/CRUD/club.php';
+    require_once dirname(__DIR__) . '/back/CRUD/club.php';
 
     $clubs = getAllClubsName();
 
@@ -19,12 +19,11 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Creer un compte</title>
-        <link rel="stylesheet" href="./css/register.css">
-        <link rel="stylesheet" href="./css/modal.css">
+        <link rel="stylesheet" href="/BLOC3-DI23/front/css/register.css">
     </head>
     <body>
         <section id="main_container">
-            <form id="sign_in" action="./actions/process_register.php" method="POST">
+            <form id="sign_in" action="./process_register" method="POST">
                 <div class="form_item">
                     <label for="pseudo" class="pointer" >Nom d'utilisateur</label>
                     <input type="text" name="pseudo" id="pseudo" placeholder="Entrez votre nom d'utilisateur" required value="admin">
@@ -52,5 +51,5 @@
             </form>
         </section>
     </body>
-<script src="./js/register.js"></script>
+<script src="/BLOC3-DI23/front/js/register.js"></script>
 </html>

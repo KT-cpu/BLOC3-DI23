@@ -2,10 +2,10 @@
         session_start();
 
         if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'admin') {
-            require_once '../back/CRUD/club.php';
-            require_once '../back/CRUD/coach.php';
-            require_once '../back/CRUD/pre_match.php';
-            require_once '../back/CRUD/pre_match_team_lineup_versus.php';
+            require_once dirname(__DIR__) . '/back/CRUD/club.php';
+            require_once dirname(__DIR__) . '/back/CRUD/coach.php';
+            require_once dirname(__DIR__) . '/back/CRUD/pre_match.php';
+            require_once dirname(__DIR__) . '/back/CRUD/pre_match_team_lineup_versus.php';
 
             if (isset($_SESSION['message'])) {
                 // addslashes() allows to escape special characters
@@ -16,7 +16,7 @@
             }
             $AllmatchPlayed = getAllPreMatchNotPlayed();
         } else {
-            header('Location: ./home.php');
+            header('Location: ./home');
             exit();
         }
 ?>
@@ -27,7 +27,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choisir un match</title>
-    <link rel="stylesheet" href="./css/result_match_management.css">
+    <link rel="stylesheet" href="/BLOC3-DI23/front/css/result_match_management.css">
 </head>
 <body>
 <section>
@@ -40,14 +40,14 @@
                         $visitorClubId = $match['visitor_team_id'];
                         $date = new DateTime($match['date']);
 
-                        $url = "./create_match_results.php?match_id=" . $match['id'];
+                        $url = "./create_match_results?match_id=" . $match['id'];
 
                 ?>
                     <a href="<?php echo $url; ?>" class="next_match_card">
                         <div class="logo_container">
-                            <img src="./assets/club_logo/<?php echo htmlspecialchars($homeClubId); ?>.png" alt="Logo domicile">
+                            <img src="/BLOC3-DI23/front/assets/club_logo/<?php echo htmlspecialchars($homeClubId); ?>.png" alt="Logo domicile">
                             <span>-</span>
-                            <img src="./assets/club_logo/<?php echo htmlspecialchars($visitorClubId); ?>.png" alt="Logo visiteur">
+                            <img src="/BLOC3-DI23/front/assets/club_logo/<?php echo htmlspecialchars($visitorClubId); ?>.png" alt="Logo visiteur">
                         </div>
                         <div class="info_container">
                             <div class="match_date">

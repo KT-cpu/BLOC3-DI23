@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Les équipes</title>
-    <link rel="stylesheet" href="./css/clubs.css">
+    <link rel="stylesheet" href="/BLOC3-DI23/front/css/clubs.css">
 </head>
 <body>
     <section id="main_container">
@@ -29,8 +29,8 @@
             <?php
                 foreach ($clubsId as $clubId) {
                     ?>
-                        <a href="./club.php?club_id=<?php echo $clubId['id']; ?>" id="card_<?php echo $clubId['id']; ?>" class="card">
-                            <img src="./assets/club_logo/<?php echo $clubId['id']; ?>.png" alt="logo" class="card_img">
+                        <a href="./club?club_id=<?php echo $clubId['id']; ?>" id="card_<?php echo $clubId['id']; ?>" class="card">
+                            <img src="/BLOC3-DI23/front/assets/club_logo/<?php echo $clubId['id']; ?>.png" alt="logo" class="card_img">
                         </a>
                     <?php
                 }

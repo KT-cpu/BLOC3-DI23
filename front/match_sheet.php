@@ -1,6 +1,4 @@
 <?php
-echo "match_sheet.php";
-
 session_start();
 if (isset($_SESSION['message'])) {
     // addslashes() allows to escape special characters
@@ -19,7 +17,7 @@ $match = getPreMatchById($matchId);
 $teamLineup = getPreMatchTeamLineupVersusById($match["pre_match_team_lineup_versus_id"]);
 if($teamLineup["home_team_lineup_id"] == null || $teamLineup["visitor_team_lineup_id"] == null) {
     $_SESSION['message'] = "Les compositions des équipes ne sont pas encore prêtes.";
-    header('Location: ./home.php');
+    header('Location: ./coach_management');
     exit();
 }
 
@@ -77,7 +75,7 @@ function createSoccerFieldPosition($lineUp, $playerPosition) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avant match</title>
-    <link rel="stylesheet" href="./css/match_sheet.css">
+    <link rel="stylesheet" href="/BLOC3-DI23/front/css/match_sheet.css">
 </head>
 <body>
     <section id="information_title_container">
@@ -88,7 +86,7 @@ function createSoccerFieldPosition($lineUp, $playerPosition) {
     <section id="main_container">
         <div id="home_club_container">
             <div>
-                <img src="./assets/club_logo/<?php echo $match['home_team_id']?>.png" alt="home_club_logo">
+                <img src="/BLOC3-DI23/front/assets/club_logo/<?php echo $match['home_team_id']?>.png" alt="home_club_logo">
                 <h3>Composition du <?php echo ucwords($homeData["club_name"]) ?></h3>
             </div>
             <div>
@@ -123,7 +121,7 @@ function createSoccerFieldPosition($lineUp, $playerPosition) {
             </div>
         </div>
         <div id="soccer_field_container">
-            <img id="soccer_field_container_img" src="./assets/soccer_field_vertical.jpg" alt="">
+            <img id="soccer_field_container_img" src="/BLOC3-DI23/front/assets/soccer_field_vertical.jpg" alt="">
             <div id="home_guardian_container" class="position_container home_player_field">
                 <?php 
                     createSoccerFieldPosition($homeLineUp, 'Gardien');
@@ -167,7 +165,7 @@ function createSoccerFieldPosition($lineUp, $playerPosition) {
         </div>
         <div id="visitor_club_container">
             <div>
-                <img src="./assets/club_logo/<?php echo $match['visitor_team_id']?>.png" alt="visitor_club_logo">
+                <img src="/BLOC3-DI23/front/assets/club_logo/<?php echo $match['visitor_team_id']?>.png" alt="visitor_club_logo">
                 <h3>Composition du <?php echo ucwords($visitorData["club_name"]) ?></h3>
             </div>
             <div>
@@ -203,5 +201,5 @@ function createSoccerFieldPosition($lineUp, $playerPosition) {
         </div>
     </section>
 </body>
-<script src="./js/match_sheet.js"></script>
+<script src="/BLOC3-DI23/front/js/match_sheet.js"></script>
 </html>

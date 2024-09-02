@@ -28,36 +28,36 @@
 <body>
     <?php if ($user_role === 'admin') { ?>
         <div>
-            <a href="./create_match.php">Créer un match</a>
+            <a href="./create_match">Créer un match</a>
         </div>
     <?php } ?>
 
     <?php if ($user_role === 'admin') { ?>
         <div>
-            <a href="./result_match_management.php">Saisir les résultats d'un match</a>
+            <a href="./result_match_management">Saisir les résultats d'un match</a>
         </div>
     <?php } ?>
 
     <?php if ($user_role === null) { ?>
         <div>
-            <a href="./login.php">Se connecter</a>
+            <a href="./login">Se connecter</a>
+        </div>
+        <div>
+            <a href="./register">S'inscrire</a>
         </div>
     <?php } ?>
-        <div>
-            <a href="./register.php">S'inscrire</a>
-        </div>
     <?php if ($user_role !== null) { ?>
         <div>
-            <a href="./account_management.php">Gestion du compte</a>
+            <a href="./account_management">Gestion du compte</a>
         </div>
     <?php } ?>
     <?php if ($user_role === 'coach') { ?>
         <div>
-            <a href="./coach_management.php">Gérer mon équipe</a>
+            <a href="./coach_management">Gérer mon équipe</a>
         </div>
     <?php } ?>
     <div>
-        <a href="./clubs.php">Les équipes</a>
+        <a href="./clubs">Les équipes</a>
     </div>
 </body>
 </html>

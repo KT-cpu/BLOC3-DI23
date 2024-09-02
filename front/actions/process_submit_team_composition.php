@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    header('Location: ./login.php');
+    header('Location: ./login');
     exit();
 }
 
@@ -18,11 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $coach_club_id = $_POST['coach_club_id'];
     $players = json_decode($_POST['players'], true);
 
-    echo "<pre>";
-    var_dump($players);
-
     list($preMatchTeamLineupVersus, $match) = getMatchAndTeamLineupType($match_id, $coach_club_id);
-    //$preMatchTeamLineupVersus = getMatchAndTeamLineupType($match_id, $coach_club_id);
+
     $selectedPlayersLineUp = [];
     $needNewTeamLineUp = false;
 
@@ -46,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         $_SESSION['message'] = "Echec de l'enregistrement de la composition de l'équipe.";
     }
-    header('Location: ../coach_management.php');
+    header('Location: ./coach_management');
     exit();
 }
 
@@ -54,7 +51,7 @@ function getMatchAndTeamLineupType($match_id, $coach_club_id) {
     $match = getPreMatchById($match_id);
     if (!$match) {
         $_SESSION['message'] = "Le match n'existe pas.";
-        header('Location: ../coach_management.php');
+        header('Location: ./coach_management');
         exit();
     }
     if ($match['home_team_id'] == $coach_club_id) {
@@ -65,7 +62,7 @@ function getMatchAndTeamLineupType($match_id, $coach_club_id) {
         //return 'visitor_team_lineup_id';
     } else {
         $_SESSION['message'] = "Vous n'êtes pas l'entraineur de l'une des deux équipes.";
-        header('Location: ../coach_management.php');
+        header('Location: ./coach_management');
         exit();
     }
 }

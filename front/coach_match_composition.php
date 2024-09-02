@@ -4,18 +4,18 @@
         $matchId = $_GET['match_id'];
         if(isset($matchId) && !empty($matchId) && is_numeric($matchId)) {
 
-            require_once '../back/CRUD/pre_match.php';
-            require_once '../back/CRUD/pre_match_team_lineup_versus.php';
+            require_once dirname(__DIR__) . '/back/CRUD/pre_match.php';
+            require_once dirname(__DIR__) . '/back/CRUD/pre_match_team_lineup_versus.php';
 
             $match = getPreMatchById($matchId);
 
             //echo "<pre>";
             //var_dump($match);
             if($_SESSION['user_favorite_club_id'] == $match['home_team_id'] || $_SESSION['user_favorite_club_id'] == $match['visitor_team_id']) {
-                require_once '../back/CRUD/club.php';
-                require_once '../back/CRUD/player.php';
-                require_once '../back/CRUD/player_position.php';
-                require_once '../back/CRUD/pre_match_team_lineup_versus.php';
+                require_once dirname(__DIR__) . '/back/CRUD/club.php';
+                require_once dirname(__DIR__) . '/back/CRUD/player.php';
+                require_once dirname(__DIR__) . '/back/CRUD/player_position.php';
+                require_once dirname(__DIR__) . '/back/CRUD/pre_match_team_lineup_versus.php';
 
                 $match = getPreMatchById($matchId);
                 $thisClubType = $match['home_team_id'] == $_SESSION['user_favorite_club_id'] ? "home_team_lineup_id" : "visitor_team_lineup_id";
@@ -24,7 +24,7 @@
 
                 if ($preMatchTeamLineupVersus[$thisClubType] !== null) {
                     $_SESSION['message'] = "Composition de l'équipe déjà enregistrée.";
-                    header('Location: ./coach_management.php');
+                    header('Location: ./coach_management');
                     exit();
                 }
                 
@@ -39,17 +39,17 @@
                 //var_dump($players);
             } else {
                 $_SESSION['message'] = "Accès refusé. Vous n'êtes pas l'entraineur de ce match.";
-                header('Location: ./coach_management.php');
+                header('Location: ./coach_management');
                 exit();
             }
         } else {
             $_SESSION['message'] = 'Accès refusé. Match non spécifié.';
-            header('Location: ./coach_management.php');
+            header('Location: ./coach_management');
             exit();
         }
     } else {
         $_SESSION['message'] = "Vous n'êtes pas autorisé à accéder à cette page.";
-        header('Location: ./home.php');
+        header('Location: ./home');
         exit();
     }
 ?>
@@ -59,15 +59,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Composition du match</title>
-    <link rel="stylesheet" href="./css/coach_match_composition.css">
+    <link rel="stylesheet" href="/BLOC3-DI23/front/css/coach_match_composition.css">
 </head>
 <body>
     <section id="next_match_container">
         <div class="next_match_card">
             <div class="logo_container">
-                <img src="./assets/club_logo/<?php echo htmlspecialchars($homeClubId); ?>.png" alt="">
+                <img src="/BLOC3-DI23/front/assets/club_logo/<?php echo htmlspecialchars($homeClubId); ?>.png" alt="">
                 <span>-</span>
-                <img src="./assets/club_logo/<?php echo htmlspecialchars($visitorClubId); ?>.png" alt="">
+                <img src="/BLOC3-DI23/front/assets/club_logo/<?php echo htmlspecialchars($visitorClubId); ?>.png" alt="">
             </div>
             <div class="info_container">
                 <div class="match_date">
@@ -131,10 +131,8 @@
         </div>
         <div id="middle_container">
             <h3>Titulaires</h3>
-            <!-- <div id="soccer_field_container">
-            </div> -->
             <div id="soccer_field_container">
-                <img src="./assets/soccer_field.jpg" alt="" id="soccer_field_image">
+                <img src="/BLOC3-DI23/front/assets/soccer_field.jpg" alt="" id="soccer_field_image">
                 <div id="guardian_container" class="position_container">
                 </div>
                 <div id="defender_container" class="position_container">
@@ -153,7 +151,7 @@
             </div>
         </div>
         <div id="right_container">
-            <form action="./actions/process_submit_team_composition.php" method="POST" id="team_form">
+            <form action="./process_submit_team_composition" method="POST" id="team_form">
                 <input type="hidden" name="match_id" id="match_id">
                 <input type="hidden" name="coach_club_id" id="coach_club_id">
                 <input type="hidden" name="players" id="players">
@@ -166,5 +164,5 @@
     const matchId = <?php echo $matchId; ?>;
     const coachClubId = <?php echo $coachClubId; ?>;
 </script>
-<script src="./js/coach_match_composition.js"></script>
+<script src="/BLOC3-DI23/front/js/coach_match_composition.js"></script>
 </html>
