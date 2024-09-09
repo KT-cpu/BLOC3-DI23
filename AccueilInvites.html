@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fédération Française de Foot</title>
+    <link rel="shortcut icon" type="image/x-icon" href= "../../../Ressources Cubes/favicon (1).ico">
+
+    <link rel="stylesheet" href="AccueilInvites.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+    
+</head>
+<body id="main">
+
+    <div class="header">
+        <div class="icon">
+            <a href="http://127.0.0.1:5500/AccueilInvites.html"><img src="..\..\..\Ressources Cubes\LogoBloc3.png" class="iconfoot"></a>
+            <img src="https://cdn.iconscout.com/icon/free/png-512/free-hamburger-menu-462145.png?f=webp&w=256" class="Menu" onclick="openNav()">
+                    <div id="mySidenav" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <a href="#">Les Matchs</a>
+                        <a href="#">Les Equipes</a>
+                        <a href="#">Les Statistiques</a>
+                        <a href="#" class="Connexion">Se Connecter</a>
+                    </div>
+            <h1>Ma Ligue 1 - Accueil</h1>
+        </div>
+      </div>
+
+
+    <Main>
+        <div class="content2">
+            <img src="..\..\..\Ressources Cubes\Ecran Ligue 1.png" alt="fond bleu">
+            <button class="Button1"><img src="https://pbs.twimg.com/media/FxuhuRuXwAEXROm?format=jpg&name=4096x4096"></button>
+            <h2 class="Equipe">Les Equipes</h2>
+            <button class="Button2"><img src="https://lepetitlillois.com/wp-content/uploads/2020/04/ligue1-ballon-1536x1024.jpg.webp"></button>
+            <h2 class="Matchs">Prochains Matchs</h2>
+            <h1 class="Equipe1">Paris SG - FC Nantes</h1>
+            <div class="logo_container">
+                <img src="..\..\..\Ressources Cubes\LogoPsg.png" class="Club1">
+                <img src="..\..\..\Ressources Cubes\LogoNantes.png" class="Club2">
+            </div>
+            <h1 class="Date">Date : </h1>
+            <h1 class="date2">29 / 01 / 2024</h1>
+            <h1 class="Lieu">Lieu : </h1>
+            <h1 class="lieu2">Parc des Princes</h1>
+            <button class="Button3"><img src="https://i.f1g.fr/media/cms/1194x804/2021/05/18/a8c89bc86ae642e6b43169f35f4dcd2463d8956a06e342b25204508bc6addf37.jpg"></button>
+            
+            <h2 class="Resultats">Derniers Résultats</h2>
+            <div class="logo_container2">
+                <img src="..\..\..\Ressources Cubes\LogoPsg.png" class="Club3">
+                <h1 class="points">3 - 0</h1>
+                <img src="..\..\..\Ressources Cubes\LogoMonaco.png" class="Club4">
+            </div>
+            <h1 class="Equipe2">Paris SG - Monaco</h1>
+            <h1 class="Date1">Date : </h1>
+            <h1 class="date3">18 / 01 / 2024</h1>
+            <h1 class="Lieu1">Lieu : </h1>
+            <h1 class="lieu3">Parc des Princes</h1>
+        </div> 
+    </Main>
+
+    <footer>
+       <div class="content">
+        <div class="leftbox">
+            <div class="upper">
+                <div class="topic">Nos Réseaux Sociaux</div>
+            </div>
+            <div class="middle">
+                <ul>
+                    <li><a href="https://www.youtube.com/channel/UCeJlXGyEl7kBgQJKADAHM3A"><i class="fa-brands fa-youtube"></i></a></li>
+                    <li><a href="https://x.com/FFF?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa-brands fa-x-twitter"></i></a></li>
+                    <li><a href="https://github.com/QuentinBruera/BLOC3-DI23"><i class="fa-brands fa-github fa-lg"></i></a></li>
+                </ul>
+            </div>
+            <div class="low">
+                <p>Copyright &#169; 2024 All rights reserved</p>
+            </div>
+        </div>
+        
+    
+       </div>
+    </footer>
+
+
+    <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+          document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        }
+        
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+          document.getElementById("main").style.marginLeft= "0";
+          document.body.style.backgroundColor = "white";
+        }
+        </script>
+</body>
+</html>
