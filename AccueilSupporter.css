@@ -1,0 +1,472 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+  
+  body {
+    margin: 0; /* Permet de prendre toute la hauteur pour le header */
+    padding: 0; /* Permet de prendre toute la hauteur pour le header */ 
+}
+
+header{
+    background-color: #1A3ECD;
+    height: 1vw; /* Permet de prendre toute la hauteur pour le header */
+    max-width: 100%;
+    margin: 0; /* Permet de prendre toute la hauteur pour le header */
+    padding: 0; /* Permet de prendre toute la hauteur pour le header */
+}
+
+.iconfoot{
+  height: 70px;
+  width: 80px;
+  float: left;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.Menu {
+  height: auto;
+  width: 50px;
+  float: right;
+  margin-top: 10px;
+  margin-right: 15px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #163256;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #f1f1f1;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav .GestionProfil{
+    position: static;
+    margin-top: 340px;
+  }
+  
+  .sidenav .Déconnexion{
+  position: static;
+  margin-top: 10px;
+  }
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+    
+    img {
+      height: 660px;
+      width: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      margin-left: auto; /* Permet de centrer l'img */
+      margin-right: auto; /* Permet de centrer l'img */
+      display: block; /* Permet de centrer l'img */
+    }
+
+
+    .content2 .Button1 {
+      position: absolute;
+      top: 190px;
+      left: 50px;
+      width: 300px;
+      height: 300px;
+      display: inline-block;
+      font-size: 24px;
+      cursor: pointer;
+      text-decoration: none;
+      outline: none;
+      color: #a91313;
+      background-color: #ffffff;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 9px 9px 5px 4px #999;
+      }
+
+      .Button1 img{
+      width: 300px;
+      border-radius: 15px;
+      outline: solid white;
+      }
+
+      .content2 .Button1:active {
+        background-color: #ffffff;
+        box-shadow: 9px 9px 5px 4px #666;
+        transform: translateY(4px);
+      }
+
+
+      .content2 .Equipe {
+        position: absolute;
+        bottom: 100px;
+        left: 140px;
+        font-size: 22px;
+        font-weight: 600;
+        color: white;
+      }
+
+      .content2 .Button2 {
+        position: absolute;
+        top: 190px;
+        left: 410px;
+        width: 300px;
+        height: 300px;
+        display: inline-block;
+        font-size: 24px;
+        cursor: pointer;
+        text-decoration: none;
+        outline: none;
+        color: #a91313;
+        background-color: #ffffff;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 9px 9px 5px 4px #999;
+        }
+
+        .Button2 img{
+          width: fit-content;
+          border-radius: 15px;
+          outline: solid white;
+          }
+
+        .content2 .Button2:active {
+          background-color: #ffffff;
+          box-shadow: 9px 9px 5px 4px #666;
+          transform: translateY(4px);
+        }
+
+
+        .content2 .Matchs{
+          position: absolute;
+          bottom: 100px;
+          left: 480px;
+          font-size: 22px;
+          font-weight: 600;
+          color: white;
+        }
+
+        .logo_container .Club1{
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          margin: auto;
+          bottom: 420px;
+          left: 440px;
+          position : absolute;
+        }
+
+        .logo_container .Club2{
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          margin: auto;
+          bottom: 420px;
+          left: 620px;
+          position : absolute;
+        }
+
+        .content2 .Equipes {
+          position: absolute;
+          top: 330px;
+          left: 780px;
+          font-size: 21px;
+          font-weight: 600;
+          color: white;
+        }
+
+        .content2 .points {
+          position: absolute;
+          bottom: 370px;
+          left: 560px;
+          font-size: 21px;
+          font-weight: 600;
+          color: white;
+        }
+
+
+        .content2 .Date {
+          position: absolute;
+          bottom: 270px;
+          left: 440px;
+          font-size: 20px;
+          font-weight: 600;
+          color: white;
+        }
+
+        .content2 .date1 {
+          position: absolute;
+          bottom: 270px;
+          left: 500px;
+          font-size: 20px;
+          font-weight: 600;
+          color: white;
+        }
+
+        .content2 .Lieu {
+          position: absolute;
+          bottom: 230px;
+          left: 440px;
+          font-size: 20px;
+          font-weight: 600;
+          color: white;
+        }
+
+        .content2 .lieu1 {
+          position: absolute;
+          bottom: 230px;
+          left: 500px;
+          font-size: 20px;
+          font-weight: 600;
+          color: white;
+        }
+
+
+        .content2 .Button3 {
+          position: absolute;
+          top: 190px;
+          right: 440px;
+          width: 300px;
+          height: 300px;
+          display: inline-block;
+          font-size: 24px;
+          cursor: pointer;
+          text-decoration: none;
+          outline: none;
+          color: #a91313;
+          background-color: #ffffff;
+          border: none;
+          border-radius: 15px;
+          box-shadow: 9px 9px 5px 4px #999;
+          }
+
+          .Button3 img{
+            width: fit-content;
+            border-radius: 15px;
+            outline: solid white;
+            }
+
+          .content2 .Button3:active {
+            background-color: #ffffff;
+            box-shadow: 9px 9px 5px 4px #666;
+            transform: translateY(4px);
+          }
+
+
+          .logo_container2 .Club3{
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin: auto;
+            bottom: 230px;
+            right: 640px;
+            position : absolute;
+          }
+  
+          .logo_container2 .Club4{
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin: auto;
+            bottom: 230px;
+            right: 460px;
+            position : absolute;
+          }
+  
+          .content2 .Equipes2 {
+            position: absolute;
+            bottom: 450px;
+            right: 500px;
+            font-size: 21px;
+            font-weight: 600;
+            color: white;
+          }
+  
+  
+          .content2 .Date2 {
+            position: absolute;
+            bottom: 410px;
+            right: 670px;
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+          }
+  
+          .content2 .date2 {
+            position: absolute;
+            bottom: 410px;
+            right: 580px;
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+          }
+  
+          .content2 .Lieu2 {
+            position: absolute;
+            bottom: 380px;
+            right: 670px;
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+          }
+  
+          .content2 .lieu2 {
+            position: absolute;
+            bottom: 380px;
+            right: 580px;
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+          }
+
+
+
+          .content2 .Resultats{
+            position: absolute;
+            bottom: 100px;
+            right: 500px;
+            font-size: 22px;
+            font-weight: 600;
+            color: white;
+          }
+
+          .content2 .Button4 {
+            position: absolute;
+            top: 190px;
+            right: 70px;
+            width: 300px;
+            height: 300px;
+            display: inline-block;
+            font-size: 24px;
+            cursor: pointer;
+            text-decoration: none;
+            outline: none;
+            color: #a91313;
+            background-color: #ffffff;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 9px 9px 5px 4px #999;
+            }
+      
+            .Button4 img{
+            width: 300px;
+            border-radius: 15px;
+            outline: solid white;
+            }
+      
+            .content2 .Button4:active {
+              background-color: #ffffff;
+              box-shadow: 9px 9px 5px 4px #666;
+              transform: translateY(4px);
+            }
+      
+      
+            .content2 .MonEquipe {
+              position: absolute;
+              bottom: 100px;
+              right: 150px;
+              font-size: 22px;
+              font-weight: 600;
+              color: white;
+            }
+
+
+
+
+    footer {
+      background-color: #00224D;
+      width: 100%;
+      position : relative;
+      height: 200px;
+      bottom: 0;
+      left: 0;
+      margin: 0;
+      padding: 0;
+    }
+  
+    footer .content{
+      max-width: 1350px;
+      margin: auto;
+      padding-top: 30px;
+      padding-bottom: 20px;
+      padding-left: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  
+    footer .content .box{
+      width: 33%;
+    }
+  
+    footer .content .topic{
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: white;
+    }
+  
+    footer .content p{
+      text-align: justify;
+      color: white;
+    }
+
+    footer .content .middle ul{
+      list-style-type: none;
+    }
+
+    footer .content .middle li{
+      display: inline;
+    }
+
+    footer .content .middle a{
+      text-decoration: none;
+      color: white;
+      background-color: transparent;
+    }
+
+    footer .content .middle a:visited{
+      color: white;
+      background-color: transparent;
+    }
+
+    footer .content .middle i{
+      margin-top: 20px;
+      padding-right: 16px;
+      width: 50px;
+      font-size: x-large;
+    }
+  
+    footer .content .low p{
+      position: static;
+      margin-top: 60px;
+    }
+
+  
+  
